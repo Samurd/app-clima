@@ -1,20 +1,49 @@
 const container = document.querySelector(".container");
-const search = document.querySelector(".search-box button");
+const search = document.querySelector(".btnsearch");
 const weatherBox = document.querySelector(".weather-box");
 const error404 = document.querySelector(".not-found");
 const weatherDetails = document.querySelector(".weather-details");
-const inputSearch = document.querySelector("#input-search");
+let inputSearch = document.querySelector("#input-search");
+const btnreset = document.querySelector(".btnreset");
 
-search.addEventListener("click", buscador);
-inputSearch.addEventListener("keyup", (e) => {
+search.addEventListener("click", () => {
+    return buscador();
+});
+
+inputSearch.addEventListener("keyup", () => {
+
+    if (inputSearch.value) {
+        btnreset.classList.add("fadeOut")
+        btnreset.style.display = "block"
+
+    } else {
+        btnreset.style.display = "none"
+        btnreset.classList.remove("fadeOut")
+    }
+})
+
+btnreset.addEventListener("click", () => {
+    container.style.height = "105px";
+    inputSearch.value = "";
+    error404.style.display = 'none';
+    error404.classList.remove("fadeIn");
+})
+
+
+inputSearch.addEventListener("keyup", keyEnter)
+
+function keyEnter(e) {
     if (e.keyCode == 13) {
         return buscador();
     }
-})
+
+}
+
 
 function buscador() {
     const apiKey = '7a31bc476a0b55b4ff7f39dde7a30a0c'
     const city = document.querySelector(".search-box input").value;
+
 
 
     if (city === '' ) 
@@ -29,7 +58,9 @@ function buscador() {
 
             error404.classList.add("fadeIn");
             return;
+
         }
+
 
         error404.style.display = 'none';
         error404.classList.remove("fadeIn");
@@ -37,6 +68,7 @@ function buscador() {
         const image = document.querySelector(".weather-box img")
         const temperature = document.querySelector(".weather-box .temperature")
         const description = document.querySelector(".weather-box .description")
+        const countryName = document.querySelector(".country-name")
         const windSpeed = document.querySelector(".wind-speed")
         const humidity = document.querySelector(".humidity")
 
@@ -71,8 +103,19 @@ function buscador() {
 
         weatherBox.style.display = ''
         weatherBox.classList.add("fadeIn")
+        image.classList.add("fadeIn")
         container.style.height = '530px';
         weatherBox.style.display = '';
         weatherDetails.style.display = ''
+
+        btnreset.addEventListener("click", () => {
+            container.style.height = "105px";
+            inputSearch.value = "";
+            weatherBox.style.display = 'none';
+            weatherDetails.style.display = 'none'
+            btnreset.style.display = "none"
+            btnreset.classList.remove("fadeOut")
+        })
+
     })
 }

@@ -15,19 +15,23 @@ main section {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #06283d;
+    background: url("https://cdn.pixabay.com/photo/2023/01/08/05/45/mountain-7704584_1280.jpg");
     height: 100vh;
+    background-size: cover;
+    opacity: .8;
+    z-index: -1;
 }
 
 .container {
     position: relative;
     width: 400px;
     height: 105px;
-    background-color: #fff;
+    background-color: #05050590;
     border-radius: 18px;
     overflow: hidden;
-    transition: 0.6s ease-out;
+    transition: 0.2s ease;
     padding: 28px 32px;
+    backdrop-filter: blur(.5rem);
 }
 
 .search-box {
@@ -39,39 +43,71 @@ main section {
 }
 
 .search-box input {
-    color: #06283d ;
+    color: white;
     width: 70%;
-    margin: 0 5px;
+    margin-right: 10px;
     font-size: 24px;
     font-weight: 500;
     text-transform: uppercase;
-    text-align: center;
-    border-radius: 20px;
+    text-align: left;
+    border-radius: 15px;
+    padding: 5px;
+    background-color: transparent;
 }
 
 .search-box input::placeholder {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
-    color: #06283d;
+    color: white;
     text-transform: capitalize;
 }
 
 
-.search-box button {
+.search-box .btnsearch {
     cursor: pointer;
     width: 50px;
     height: 50px;
-    fill: #06283d;
-    background-color: #dff6ff;
-    border-radius: 50%;
-    transition:  0.4s ease;
+    fill: white;
+    transition:  0.2s ease;
     margin-left: 5px;
+    background-color: transparent;
 }
 
-.search-box button:hover {
-    fill: #fff;
-    background-color: #06283d;
+.search-box .btnsearch:hover {
+    fill: black;
+    background-color:white;
+    border-radius: 100%;
 }
+
+.btnreset {
+    background-color: transparent;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    display: none;
+}
+
+.fadeOut {
+    transition: ease-in;
+    animation:  .3s fadeOut;
+}
+
+@keyframes fadeOut {
+    0% {
+        transform: translateY(-90px
+        );
+    } 
+
+    90% {
+        transform: translateY(0px);
+    }
+
+
+}
+
 
 .weather-box {
     text-align: center;
@@ -84,7 +120,7 @@ main section {
 
 .weather-box .temperature {
     position: relative;
-    color: #06283d;
+    color: white;
     font-size: 4rem;
     font-weight: 800;
 }
@@ -96,7 +132,7 @@ main section {
 }
 
 .weather-box .description {
-    color: #06283d;
+    color: white;
     font-size: 22px;
     font-weight: 500;
     text-transform: capitalize;
@@ -114,11 +150,19 @@ main section {
     align-items: center;
     justify-content: center;
     margin: 0 21px;
-    font-size: 15px;
-    font-weight: 600;
-    color: #06283d;
+    color: white;
 }
 
+.text span {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+
+.text p {
+    font-weight: 500;
+    font-size: 15px;
+}
 
 .humidity-box .text, .wind-box .text {
     padding: 0px 7px;
@@ -147,15 +191,15 @@ main section {
 }
 
 .not-found p {
-    color: #06283d;
+    color: white;
     font-size: 22px;
     font-weight: 500;
     margin-top: 12px;
 }
 
 .fadeIn {
-    animation:  .5s fadeIn forwards;
-    animation-delay: .5s;
+    animation:  .2s fadeIn forwards;
+    animation-delay: .2s;
 }
 
 @keyframes fadeIn {
