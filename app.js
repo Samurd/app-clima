@@ -5,9 +5,14 @@ const error404 = document.querySelector(".not-found");
 const weatherDetails = document.querySelector(".weather-details");
 const inputSearch = document.querySelector("#input-search");
 
+search.addEventListener("click", buscador);
+inputSearch.addEventListener("keyup", (e) => {
+    if (e.keyCode == 13) {
+        return buscador();
+    }
+})
 
-
-search.addEventListener("click",() => {
+function buscador() {
     const apiKey = '7a31bc476a0b55b4ff7f39dde7a30a0c'
     const city = document.querySelector(".search-box input").value;
 
@@ -70,4 +75,4 @@ search.addEventListener("click",() => {
         weatherBox.style.display = '';
         weatherDetails.style.display = ''
     })
-})
+}
