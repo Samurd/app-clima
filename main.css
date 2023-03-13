@@ -32,6 +32,7 @@ main section {
     transition: 0.2s ease;
     padding: 28px 32px;
     backdrop-filter: blur(.5rem);
+    box-shadow: 0px 0px 20px 10px black;
 }
 
 .search-box {
